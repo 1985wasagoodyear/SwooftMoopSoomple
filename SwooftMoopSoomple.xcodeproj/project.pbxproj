@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		3F38D107236F9A3300594566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D106236F9A3300594566 /* AppDelegate.swift */; };
-		3F38D109236F9A3300594566 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D108236F9A3300594566 /* ViewController.swift */; };
+		3F38D109236F9A3300594566 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D108236F9A3300594566 /* MapViewController.swift */; };
 		3F38D10C236F9A3300594566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F38D10A236F9A3300594566 /* Main.storyboard */; };
 		3F38D10E236F9A3400594566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38D10D236F9A3400594566 /* Assets.xcassets */; };
 		3F38D111236F9A3400594566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F38D10F236F9A3400594566 /* LaunchScreen.storyboard */; };
+		3F38D11C236F9EC800594566 /* CLLocationDegrees+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D11B236F9EC800594566 /* CLLocationDegrees+Utility.swift */; };
+		3F38D11E236F9ECF00594566 /* UIKit+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D11D236F9ECF00594566 /* UIKit+Utility.swift */; };
+		3F38D121236F9EE100594566 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D120236F9EE100594566 /* UIViewController+Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F38D103236F9A3300594566 /* SwooftMoopSoomple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwooftMoopSoomple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F38D106236F9A3300594566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F38D108236F9A3300594566 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F38D108236F9A3300594566 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3F38D10B236F9A3300594566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F38D10D236F9A3400594566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F38D110236F9A3400594566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F38D112236F9A3400594566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F38D11B236F9EC800594566 /* CLLocationDegrees+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationDegrees+Utility.swift"; sourceTree = "<group>"; };
+		3F38D11D236F9ECF00594566 /* UIKit+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Utility.swift"; sourceTree = "<group>"; };
+		3F38D120236F9EE100594566 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,33 @@
 		3F38D105236F9A3300594566 /* SwooftMoopSoomple */ = {
 			isa = PBXGroup;
 			children = (
-				3F38D106236F9A3300594566 /* AppDelegate.swift */,
-				3F38D108236F9A3300594566 /* ViewController.swift */,
+				3F38D11A236F9EBC00594566 /* Utiltity */,
+				3F38D108236F9A3300594566 /* MapViewController.swift */,
+				3F38D122236FA20700594566 /* MapModels */,
 				3F38D10A236F9A3300594566 /* Main.storyboard */,
+				3F38D106236F9A3300594566 /* AppDelegate.swift */,
 				3F38D10D236F9A3400594566 /* Assets.xcassets */,
 				3F38D10F236F9A3400594566 /* LaunchScreen.storyboard */,
 				3F38D112236F9A3400594566 /* Info.plist */,
 			);
 			path = SwooftMoopSoomple;
+			sourceTree = "<group>";
+		};
+		3F38D11A236F9EBC00594566 /* Utiltity */ = {
+			isa = PBXGroup;
+			children = (
+				3F38D11B236F9EC800594566 /* CLLocationDegrees+Utility.swift */,
+				3F38D11D236F9ECF00594566 /* UIKit+Utility.swift */,
+				3F38D120236F9EE100594566 /* UIViewController+Alerts.swift */,
+			);
+			path = Utiltity;
+			sourceTree = "<group>";
+		};
+		3F38D122236FA20700594566 /* MapModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F38D109236F9A3300594566 /* ViewController.swift in Sources */,
+				3F38D11C236F9EC800594566 /* CLLocationDegrees+Utility.swift in Sources */,
+				3F38D121236F9EE100594566 /* UIViewController+Alerts.swift in Sources */,
+				3F38D109236F9A3300594566 /* MapViewController.swift in Sources */,
+				3F38D11E236F9ECF00594566 /* UIKit+Utility.swift in Sources */,
 				3F38D107236F9A3300594566 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

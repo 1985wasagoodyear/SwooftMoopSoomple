@@ -34,6 +34,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>SwooftMoop wonts yoor locotoon.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>SwooftMoop wonts yoor locotoon.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>SwooftMoop wonts yoor locotoon.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SwooftMoop wonts yoor locotoon.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
