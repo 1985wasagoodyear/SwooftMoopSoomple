@@ -9,131 +9,103 @@
 import UIKit
 import MapKit
 
-enum Direction: CaseIterable {
-    case east, south, west, north
-    static var random: Direction {
-        let allCases = Direction.allCases
-        let i = Int.random(in: 0..<allCases.count)
-        return allCases[i]
-    }
-}
 
+/*********************************************
+ Map Constants
+ 
+ Inject these however you please within your business logic,
+ or leave hard-coded for use.
+ 
+ * MAP_SPAN_MILES                 - 'diameter' of the map shown
+ * REGION_RADIUS_METERS  - diameter of the target region user must walk to
+ * TARGET_REGION_ID             - identifier string for target region
+ *********************************************/
 private let MAP_SPAN_MILES = 1.0
 private let REGION_RADIUS_METERS = 30.0
 private let TARGET_REGION_ID = "targetRegionIdentifier"
+private let PIN_ANNOTATION_REUSE_ID = "MKPinAnnotationView"
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     
-    lazy var manager: CLLocationManager = {
-        let m = CLLocationManager()
-        return m
-    }()
+    // MARK: - View Properties
     
     lazy var mapView: MKMapView = {
         let mView = MKMapView(frame: .zero)
         mView.delegate = self
         mView.showsUserLocation = true
+        mView.register(MKPinAnnotationView.self,
+                       forAnnotationViewWithReuseIdentifier: PIN_ANNOTATION_REUSE_ID)
         return mView
     }()
     
-    var targetOverlay: MKCircle!
+    // MARK: - Location Properties
+    lazy var manager: CLLocationManager = {
+        let m = CLLocationManager()
+        m.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        m.distanceFilter = 5.0 // meters
+        return m
+    }()
+    
+    /// tracks a current location of interest
     var targetRegion: CLCircularRegion!
+    /// tracks current overlay for rendering a region
+    /// remark: MKCircle is a subclass of MKOverlay
+    var targetOverlay: MKCircle!
+    /// tracks a current annotation for a location, of interest
+    var targetAnnotation: MKPointAnnotation!
 
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         getLocationUpdates()
     }
     
+    // MARK: - Setup Methods
+    
     func setupView() {
         mapView.fillIn(view)
     }
-    
     
     func getLocationUpdates() {
         manager.requestWhenInUseAuthorization()
         manager.delegate = self
     }
-
-
-}
-
-extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.isKind(of: MKUserLocation.self) {
-            return nil
-        }
-        return MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-    }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay is MKCircle && overlay === targetOverlay {
-            let circleRenderer = MKCircleRenderer(overlay: overlay)
-            circleRenderer.lineWidth = 5.0
-            circleRenderer.strokeColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-            circleRenderer.fillColor = circleRenderer.strokeColor!.withAlphaComponent(0.1)
-            return circleRenderer
-        }
-        return MKOverlayRenderer(overlay: overlay)
-    }
+    // MARK: - MapView Methods
     
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        showAlert(text: "Did enter region!")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        showAlert(text: "Did leave region!")
-    }
-}
-
-
-extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways:
-            fallthrough
-        case .authorizedWhenInUse:
-            manager.startUpdatingLocation()
-        case .denied:
-            showSettingsAlert(text: "Location Services Denied.",
-                              subtext: "Please enable location services in Settings.")
-        case .notDetermined:
-            fallthrough
-        case .restricted:
-            fallthrough
-        @unknown default:
-            print("Error - was unable to determine user location")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager,
-                         didUpdateLocations locations: [CLLocation]) {
-        guard let loc = locations.first else { return }
-        
-        centerMap(on: loc)
-        if targetRegion == nil {
-            createRegion(from: loc, direction: .random, miles: 1.0)
-        }
-    }
-    
+    /// creates a region, annotation, and overlay for a target
     func createRegion(from loc: CLLocation,
-                      direction: Direction,
+                      direction: CardinalDirection,
                       miles: Double) {
+        // determine the coordinates for the target
         let coord = loc.coordinate.locationDelta(in: direction,
                                                  miles: miles)
+        
+        // build a region and start tracking our location wrt it
         let region = CLCircularRegion(center: coord,
                                       radius: REGION_RADIUS_METERS, identifier: TARGET_REGION_ID)
+        region.notifyOnEntry = true
+        region.notifyOnExit = true
         targetRegion = region
         manager.startMonitoring(for: region)
         
+        // build an overlay to render a circle around the region
         let overlay = MKCircle(center: coord,
                                radius: REGION_RADIUS_METERS)
         targetOverlay = overlay
         mapView.addOverlay(overlay)
+        
+        // build an annotation to place an interactive pin atop it
+        let annotation = MKPointAnnotation()
+        annotation.title = "Target"
+        annotation.subtitle = "This is your first objective"
+        annotation.coordinate = coord
+        targetAnnotation = annotation
+        mapView.addAnnotation(annotation)
     }
     
+    // center the map around our position, as we move
     func centerMap(on loc: CLLocation) {
         let latDelta = CLLocationDegrees.latitude(miles: MAP_SPAN_MILES)
         let lonDelta = CLLocationDegrees.longitude(miles: MAP_SPAN_MILES)
@@ -142,5 +114,11 @@ extension MapViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: loc.coordinate,
                                         span: span)
         mapView.setRegion(region, animated: true)
+    }
+    
+    // or, call this if we don't want to re-zoom the map
+    func centerMapWithoutSpanChange(on loc: CLLocation) {
+        mapView.setCenter(loc.coordinate,
+                          animated: true)
     }
 }

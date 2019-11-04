@@ -18,7 +18,7 @@ extension CLLocationDegrees {
 }
 
 extension CLLocationCoordinate2D {
-    func locationDelta(in direction: Direction,
+    func locationDelta(in direction: CardinalDirection,
                        miles: Double) -> CLLocationCoordinate2D {
         var loc = self
         switch direction {

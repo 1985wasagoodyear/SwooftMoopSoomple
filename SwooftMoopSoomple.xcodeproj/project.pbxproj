@@ -15,6 +15,10 @@
 		3F38D11C236F9EC800594566 /* CLLocationDegrees+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D11B236F9EC800594566 /* CLLocationDegrees+Utility.swift */; };
 		3F38D11E236F9ECF00594566 /* UIKit+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D11D236F9ECF00594566 /* UIKit+Utility.swift */; };
 		3F38D121236F9EE100594566 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D120236F9EE100594566 /* UIViewController+Alerts.swift */; };
+		3F38D126236FA6AE00594566 /* CardinalDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D125236FA6AE00594566 /* CardinalDirection.swift */; };
+		3F38D12B236FACF600594566 /* MapViewController+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */; };
+		3F38D12D236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */; };
+		3F38D12F236FB1AF00594566 /* MKOverlayRenderer+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,13 @@
 		3F38D11B236F9EC800594566 /* CLLocationDegrees+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationDegrees+Utility.swift"; sourceTree = "<group>"; };
 		3F38D11D236F9ECF00594566 /* UIKit+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Utility.swift"; sourceTree = "<group>"; };
 		3F38D120236F9EE100594566 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		3F38D125236FA6AE00594566 /* CardinalDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalDirection.swift; sourceTree = "<group>"; };
+		3F38D127236FA77900594566 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3F38D128236FA78700594566 /* CLLocationManagerNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CLLocationManagerNotes.md; sourceTree = "<group>"; };
+		3F38D129236FA79600594566 /* MKMapViewNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MKMapViewNotes.md; sourceTree = "<group>"; };
+		3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManager.swift"; sourceTree = "<group>"; };
+		3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKOverlayRenderer+Utility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +55,9 @@
 		3F38D0FA236F9A3300594566 = {
 			isa = PBXGroup;
 			children = (
+				3F38D127236FA77900594566 /* README.md */,
+				3F38D128236FA78700594566 /* CLLocationManagerNotes.md */,
+				3F38D129236FA79600594566 /* MKMapViewNotes.md */,
 				3F38D105236F9A3300594566 /* SwooftMoopSoomple */,
 				3F38D104236F9A3300594566 /* Products */,
 			);
@@ -60,9 +74,11 @@
 		3F38D105236F9A3300594566 /* SwooftMoopSoomple */ = {
 			isa = PBXGroup;
 			children = (
+				3F38D122236FA20700594566 /* MapModels */,
 				3F38D11A236F9EBC00594566 /* Utiltity */,
 				3F38D108236F9A3300594566 /* MapViewController.swift */,
-				3F38D122236FA20700594566 /* MapModels */,
+				3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */,
+				3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */,
 				3F38D10A236F9A3300594566 /* Main.storyboard */,
 				3F38D106236F9A3300594566 /* AppDelegate.swift */,
 				3F38D10D236F9A3400594566 /* Assets.xcassets */,
@@ -78,6 +94,7 @@
 				3F38D11B236F9EC800594566 /* CLLocationDegrees+Utility.swift */,
 				3F38D11D236F9ECF00594566 /* UIKit+Utility.swift */,
 				3F38D120236F9EE100594566 /* UIViewController+Alerts.swift */,
+				3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */,
 			);
 			path = Utiltity;
 			sourceTree = "<group>";
@@ -85,6 +102,7 @@
 		3F38D122236FA20700594566 /* MapModels */ = {
 			isa = PBXGroup;
 			children = (
+				3F38D125236FA6AE00594566 /* CardinalDirection.swift */,
 			);
 			path = MapModels;
 			sourceTree = "<group>";
@@ -160,11 +178,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F38D12D236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift in Sources */,
+				3F38D12B236FACF600594566 /* MapViewController+CLLocationManager.swift in Sources */,
 				3F38D11C236F9EC800594566 /* CLLocationDegrees+Utility.swift in Sources */,
 				3F38D121236F9EE100594566 /* UIViewController+Alerts.swift in Sources */,
 				3F38D109236F9A3300594566 /* MapViewController.swift in Sources */,
 				3F38D11E236F9ECF00594566 /* UIKit+Utility.swift in Sources */,
 				3F38D107236F9A3300594566 /* AppDelegate.swift in Sources */,
+				3F38D12F236FB1AF00594566 /* MKOverlayRenderer+Utility.swift in Sources */,
+				3F38D126236FA6AE00594566 /* CardinalDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwooftMoopSoomple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,6 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwooftMoopSoomple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
