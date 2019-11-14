@@ -19,6 +19,7 @@
 		3F38D12B236FACF600594566 /* MapViewController+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */; };
 		3F38D12D236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */; };
 		3F38D12F236FB1AF00594566 /* MKOverlayRenderer+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */; };
+		3FA409D5237D8F6C00C84C01 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA409D4237D8F6C00C84C01 /* Geocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManager.swift"; sourceTree = "<group>"; };
 		3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKOverlayRenderer+Utility.swift"; sourceTree = "<group>"; };
+		3FA409D4237D8F6C00C84C01 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		3F38D105236F9A3300594566 /* SwooftMoopSoomple */ = {
 			isa = PBXGroup;
 			children = (
+				3FA409D3237D8F2E00C84C01 /* Geocoder */,
 				3F38D122236FA20700594566 /* MapModels */,
 				3F38D11A236F9EBC00594566 /* Utiltity */,
 				3F38D108236F9A3300594566 /* MapViewController.swift */,
@@ -105,6 +108,14 @@
 				3F38D125236FA6AE00594566 /* CardinalDirection.swift */,
 			);
 			path = MapModels;
+			sourceTree = "<group>";
+		};
+		3FA409D3237D8F2E00C84C01 /* Geocoder */ = {
+			isa = PBXGroup;
+			children = (
+				3FA409D4237D8F6C00C84C01 /* Geocoder.swift */,
+			);
+			path = Geocoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F38D12D236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift in Sources */,
+				3FA409D5237D8F6C00C84C01 /* Geocoder.swift in Sources */,
 				3F38D12B236FACF600594566 /* MapViewController+CLLocationManager.swift in Sources */,
 				3F38D11C236F9EC800594566 /* CLLocationDegrees+Utility.swift in Sources */,
 				3F38D121236F9EE100594566 /* UIViewController+Alerts.swift in Sources */,

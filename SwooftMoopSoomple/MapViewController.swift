@@ -38,6 +38,12 @@ final class MapViewController: UIViewController {
         return mView
     }()
     
+    lazy var searchBar: UISearchBar = {
+        let sBar = UISearchBar(frame: .zero)
+        sBar.delegate = self
+        return sBar
+    }()
+    
     // MARK: - Location Properties
     lazy var manager: CLLocationManager = {
         let m = CLLocationManager()
@@ -64,7 +70,24 @@ final class MapViewController: UIViewController {
     // MARK: - Setup Methods
     
     func setupView() {
-        mapView.fillIn(view)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(searchBar)
+        let constraints = [
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints)
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mapView)
+        let constraints2 = [
+            mapView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints + constraints2)
     }
     
     func getLocationUpdates() {
@@ -120,5 +143,26 @@ final class MapViewController: UIViewController {
     func centerMapWithoutSpanChange(on loc: CLLocation) {
         mapView.setCenter(loc.coordinate,
                           animated: true)
+    }
+}
+extension MapViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let loc = Geocoder()
+        let c = mapView.userLocation.coordinate
+        
+        let r = MKCoordinateRegion(center: c, span: mapView.region.span)
+        if #available(iOS 13.0, *) {
+            loc.find(searchBar.text!, region: r)
+        } else {
+            loc.find2(searchBar.text!, region: r)
+            return
+        }
+        
+        // Fallback on earlier versions
+        let reg = CLCircularRegion(center: c,
+                                   radius: 100,
+                                   identifier: "current region")
+        loc.find(searchBar.text!, region: reg)
+        
     }
 }
