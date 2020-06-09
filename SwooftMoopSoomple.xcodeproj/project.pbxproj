@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F02A14A248FC947001B846C /* MapViewController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F02A149248FC947001B846C /* MapViewController+SearchBarDelegate.swift */; };
 		3F38D107236F9A3300594566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D106236F9A3300594566 /* AppDelegate.swift */; };
 		3F38D109236F9A3300594566 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D108236F9A3300594566 /* MapViewController.swift */; };
 		3F38D10C236F9A3300594566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F38D10A236F9A3300594566 /* Main.storyboard */; };
@@ -19,10 +20,13 @@
 		3F38D12B236FACF600594566 /* MapViewController+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */; };
 		3F38D12D236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */; };
 		3F38D12F236FB1AF00594566 /* MKOverlayRenderer+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */; };
+		3F5664EF237F017500185B85 /* CustomAnnotationCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5664EE237F017500185B85 /* CustomAnnotationCallout.swift */; };
+		3F5664F3237F05B800185B85 /* CustomAnnotationCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5664F2237F05B800185B85 /* CustomAnnotationCallout.xib */; };
 		3FA409D5237D8F6C00C84C01 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA409D4237D8F6C00C84C01 /* Geocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F02A149248FC947001B846C /* MapViewController+SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchBarDelegate.swift"; sourceTree = "<group>"; };
 		3F38D103236F9A3300594566 /* SwooftMoopSoomple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwooftMoopSoomple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F38D106236F9A3300594566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F38D108236F9A3300594566 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManager.swift"; sourceTree = "<group>"; };
 		3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		3F38D12E236FB1AF00594566 /* MKOverlayRenderer+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKOverlayRenderer+Utility.swift"; sourceTree = "<group>"; };
+		3F5664EE237F017500185B85 /* CustomAnnotationCallout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationCallout.swift; sourceTree = "<group>"; };
+		3F5664F2237F05B800185B85 /* CustomAnnotationCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAnnotationCallout.xib; sourceTree = "<group>"; };
 		3FA409D4237D8F6C00C84C01 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +60,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F02A147248FC8D9001B846C /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F38D108236F9A3300594566 /* MapViewController.swift */,
+				3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */,
+				3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */,
+				3F02A149248FC947001B846C /* MapViewController+SearchBarDelegate.swift */,
+			);
+			path = MapViewController;
+			sourceTree = "<group>";
+		};
+		3F02A148248FC8F3001B846C /* CustomAnnotationCallout */ = {
+			isa = PBXGroup;
+			children = (
+				3F5664EE237F017500185B85 /* CustomAnnotationCallout.swift */,
+				3F5664F2237F05B800185B85 /* CustomAnnotationCallout.xib */,
+			);
+			path = CustomAnnotationCallout;
+			sourceTree = "<group>";
+		};
 		3F38D0FA236F9A3300594566 = {
 			isa = PBXGroup;
 			children = (
@@ -76,12 +102,11 @@
 		3F38D105236F9A3300594566 /* SwooftMoopSoomple */ = {
 			isa = PBXGroup;
 			children = (
+				3F02A148248FC8F3001B846C /* CustomAnnotationCallout */,
 				3FA409D3237D8F2E00C84C01 /* Geocoder */,
 				3F38D122236FA20700594566 /* MapModels */,
 				3F38D11A236F9EBC00594566 /* Utiltity */,
-				3F38D108236F9A3300594566 /* MapViewController.swift */,
-				3F38D12A236FACF600594566 /* MapViewController+CLLocationManager.swift */,
-				3F38D12C236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift */,
+				3F02A147248FC8D9001B846C /* MapViewController */,
 				3F38D10A236F9A3300594566 /* Main.storyboard */,
 				3F38D106236F9A3300594566 /* AppDelegate.swift */,
 				3F38D10D236F9A3400594566 /* Assets.xcassets */,
@@ -178,6 +203,7 @@
 			files = (
 				3F38D111236F9A3400594566 /* LaunchScreen.storyboard in Resources */,
 				3F38D10E236F9A3400594566 /* Assets.xcassets in Resources */,
+				3F5664F3237F05B800185B85 /* CustomAnnotationCallout.xib in Resources */,
 				3F38D10C236F9A3300594566 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5664EF237F017500185B85 /* CustomAnnotationCallout.swift in Sources */,
 				3F38D12D236FAD1100594566 /* MapViewController+MKMapViewDelegate.swift in Sources */,
+				3F02A14A248FC947001B846C /* MapViewController+SearchBarDelegate.swift in Sources */,
 				3FA409D5237D8F6C00C84C01 /* Geocoder.swift in Sources */,
 				3F38D12B236FACF600594566 /* MapViewController+CLLocationManager.swift in Sources */,
 				3F38D11C236F9EC800594566 /* CLLocationDegrees+Utility.swift in Sources */,

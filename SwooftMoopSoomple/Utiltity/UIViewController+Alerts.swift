@@ -43,6 +43,5 @@ extension UIViewController {
 
 extension URL {
     static let settings: URL = URL(string: UIApplication.openSettingsURLString)!
-    
 }
 

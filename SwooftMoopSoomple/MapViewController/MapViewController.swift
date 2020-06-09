@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 
-
 /*********************************************
  Map Constants
  
@@ -45,6 +44,7 @@ final class MapViewController: UIViewController {
     }()
     
     // MARK: - Location Properties
+    
     lazy var manager: CLLocationManager = {
         let m = CLLocationManager()
         m.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -54,13 +54,15 @@ final class MapViewController: UIViewController {
     
     /// tracks a current location of interest
     var targetRegion: CLCircularRegion!
+    
     /// tracks current overlay for rendering a region
-    /// remark: MKCircle is a subclass of MKOverlay
-    var targetOverlay: MKCircle!
+    var targetOverlay: MKCircle! // MKCircle is a subclass of MKOverlay
+    
     /// tracks a current annotation for a location, of interest
     var targetAnnotation: MKPointAnnotation!
 
     // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -144,25 +146,5 @@ final class MapViewController: UIViewController {
         mapView.setCenter(loc.coordinate,
                           animated: true)
     }
-}
-extension MapViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let loc = Geocoder()
-        let c = mapView.userLocation.coordinate
-        
-        let r = MKCoordinateRegion(center: c, span: mapView.region.span)
-        if #available(iOS 13.0, *) {
-            loc.find(searchBar.text!, region: r)
-        } else {
-            loc.find2(searchBar.text!, region: r)
-            return
-        }
-        
-        // Fallback on earlier versions
-        let reg = CLCircularRegion(center: c,
-                                   radius: 100,
-                                   identifier: "current region")
-        loc.find(searchBar.text!, region: reg)
-        
-    }
+    
 }

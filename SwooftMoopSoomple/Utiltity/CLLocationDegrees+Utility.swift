@@ -35,4 +35,3 @@ extension CLLocationCoordinate2D {
     }
     
 }
-

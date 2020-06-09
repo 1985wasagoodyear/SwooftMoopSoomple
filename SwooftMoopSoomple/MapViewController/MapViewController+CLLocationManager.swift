@@ -40,7 +40,7 @@ extension MapViewController: CLLocationManagerDelegate {
         
         // if we haven't already, make a target location for the user
         if targetRegion == nil {
-            createRegion(from: loc, direction: .random, miles: 1.0)
+            createRegion(from: loc, direction: .random, miles: 0.3)
         }
     }
     
