@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 
-
 /*********************************************
  Map Constants
  
@@ -38,7 +37,14 @@ final class MapViewController: UIViewController {
         return mView
     }()
     
+    lazy var searchBar: UISearchBar = {
+        let sBar = UISearchBar(frame: .zero)
+        sBar.delegate = self
+        return sBar
+    }()
+    
     // MARK: - Location Properties
+    
     lazy var manager: CLLocationManager = {
         let m = CLLocationManager()
         m.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -48,13 +54,15 @@ final class MapViewController: UIViewController {
     
     /// tracks a current location of interest
     var targetRegion: CLCircularRegion!
+    
     /// tracks current overlay for rendering a region
-    /// remark: MKCircle is a subclass of MKOverlay
-    var targetOverlay: MKCircle!
+    var targetOverlay: MKCircle! // MKCircle is a subclass of MKOverlay
+    
     /// tracks a current annotation for a location, of interest
     var targetAnnotation: MKPointAnnotation!
 
     // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -64,7 +72,24 @@ final class MapViewController: UIViewController {
     // MARK: - Setup Methods
     
     func setupView() {
-        mapView.fillIn(view)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(searchBar)
+        let constraints = [
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints)
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mapView)
+        let constraints2 = [
+            mapView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints + constraints2)
     }
     
     func getLocationUpdates() {
@@ -121,4 +146,5 @@ final class MapViewController: UIViewController {
         mapView.setCenter(loc.coordinate,
                           animated: true)
     }
+    
 }

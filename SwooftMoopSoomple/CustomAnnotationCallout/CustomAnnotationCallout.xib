@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAnnotationCallout" customModule="Mapper" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="bnc-TI-c1V"/>
+                <outlet property="nameLabel" destination="jWH-Gs-GtD" id="9DB-DU-b1g"/>
+                <outlet property="streetLabel" destination="KrF-Jp-7va" id="7QD-Uc-4Ws"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="144" height="134"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="jWH-Gs-GtD">
+                    <rect key="frame" x="10" y="54" width="40.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="KrF-Jp-7va">
+                    <rect key="frame" x="10" y="75" width="29.5" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.34475380179999998" green="0.3524613976" blue="0.38150501250000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0Y-mw-drW">
+                    <rect key="frame" x="60.5" y="54" width="73.5" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" red="0.023039685430000002" green="0.6458670661" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.023039685430000002" green="0.6458670661" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jWH-Gs-GtD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="B9d-TI-uww"/>
+                <constraint firstItem="f0Y-mw-drW" firstAttribute="top" secondItem="jWH-Gs-GtD" secondAttribute="top" id="Imj-3a-zya"/>
+                <constraint firstItem="jWH-Gs-GtD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="NbU-jW-STN"/>
+                <constraint firstItem="f0Y-mw-drW" firstAttribute="bottom" secondItem="KrF-Jp-7va" secondAttribute="bottom" id="TKa-So-Frw"/>
+                <constraint firstItem="KrF-Jp-7va" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="TVE-Dk-pvL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f0Y-mw-drW" secondAttribute="trailing" constant="10" id="gPk-hh-scP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KrF-Jp-7va" secondAttribute="bottom" constant="10" id="jU2-hU-iGZ"/>
+                <constraint firstItem="f0Y-mw-drW" firstAttribute="leading" secondItem="jWH-Gs-GtD" secondAttribute="trailing" constant="10" id="s2j-cZ-MSe"/>
+                <constraint firstItem="KrF-Jp-7va" firstAttribute="top" secondItem="jWH-Gs-GtD" secondAttribute="bottom" constant="3" id="u7E-oH-Atz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="15.942028985507248" y="121.20535714285714"/>
+        </view>
+    </objects>
+</document>

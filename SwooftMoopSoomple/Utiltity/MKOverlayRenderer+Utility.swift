@@ -21,11 +21,13 @@ extension MKOverlayRenderer {
                                           overlay: overlay)
     }
     static func renderer(color: UIColor,
-                         overlay: MKOverlay) -> MKOverlayRenderer {
+                         overlay: MKOverlay,
+                         lineWidth: CGFloat = RENDERER_LINE_WIDTH,
+                         alphaValue: CGFloat = RENDERER_ALPHA_VALUE) -> MKOverlayRenderer {
         let r = MKCircleRenderer(overlay: overlay)
-        r.lineWidth = RENDERER_LINE_WIDTH
+        r.lineWidth = lineWidth
         r.strokeColor = color
-        r.fillColor = color.withAlphaComponent(RENDERER_ALPHA_VALUE)
+        r.fillColor = color.withAlphaComponent(alphaValue)
         return r
         
     }
